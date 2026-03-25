@@ -3,10 +3,17 @@
 # Pelo menos um número, uma letra maiuscula, 1 letra minuscula e 1 caractere especial
 # Não possuir números repetidos no conjunto
 
-senha = 'Abcdefgh9@'
-caracteres_especiais = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+']
+from fastapi import FastAPI
+from pydantic import BaseModel
 
-def valida_senha(senha:str) -> bool:
+caracteres_especiais = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+']
+app = FastAPI()
+
+class PasswordRequest(BaseModel):
+    senha:str
+
+
+def regras_senha(senha:str) -> bool:
     if len(senha) < 9:
         print('A senha é muito curta')
         return False
@@ -31,4 +38,7 @@ def valida_senha(senha:str) -> bool:
     print('senha ok')
     return True
 
-valida_senha(senha)
+@app.post("/user/validate")
+async def valida_senha(request: PasswordRequest):
+    return {"senha": request.senha}
+
