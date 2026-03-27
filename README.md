@@ -24,7 +24,7 @@ Para testar a Requisição no terminal:
     ```
     curl -X POST http://127.0.0.1:8000/user/validate (Substituir a porta que retornou na subida do servidor se necessário)
     -H "Content-Type: application/json" 
-    -d '{"senha": "Senh@1234"}'
+    -d '{"password": "<Senha que deseja testar>"}'
     ```
 Retorno esperado: HTTP Status 200
 
