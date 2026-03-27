@@ -1,3 +1,3 @@
 import pytest 
-from main import validate_password
+from utils.validate_password import validate_password
 
