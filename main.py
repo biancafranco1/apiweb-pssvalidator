@@ -2,16 +2,21 @@
 from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-from typing import List, Union
+from typing import List
 
 app = FastAPI()
 
 class PasswordRequest(BaseModel):
     password:str
 
+class ResponseErrorDetails(BaseModel):
+    rule: str
+    message: str
+
 class PasswordResponse(BaseModel):
     valid: bool
-    notvalid: Union[List[str],str]
+    notvalid: List[ResponseErrorDetails]
+
 
 def validate_password(password:str) -> List[str]:
 
@@ -19,19 +24,19 @@ def validate_password(password:str) -> List[str]:
     notvalid = []
 
     if len(password) < 9:
-        notvalid.append('A senha é muito curta. Mínimo: 9 caracteres.')
+        notvalid.append({"rule": "minLenght", "message": "A senha deve conter pelo menos 9 catacteres"})
     if not any(char.isdigit() for char in password):
-        notvalid.append('A senha precisa conter pelo menos 1 número')
+        notvalid.append({"rule": "number", "message": "A senha deve conter pelo 1 número"})
     if not any(char.islower() for char in password):
-        notvalid.append('A senha precisa conter pelo menos 1 letra minuscula')
+        notvalid.append({"rule": "lower", "message": "A senha deve conter pelo 1 letra minúscula"})
     if not any(char.isupper() for char in password):
-        notvalid.append('A senha precisa conter pelo menos 1 letra maiúscula')
-    if not any(char in list(special_characters) for char in password):
-        notvalid.append('A senha precisa conter pelo menos 1 caractere especial')
+        notvalid.append({"rule": "upper", "message": "A senha deve conter pelo menos 91 letra maiúscula"})
+    if not any(char in set(special_characters) for char in password):
+        notvalid.append({"rule": "symbol", "message": "A senha deve conter pelo menos 1 caractere especial"})
     if len(set(password)) != len (password):
-        notvalid.append('A senha não pode conter caracteres duplicados')
+        notvalid.append({"rule": "unique", "message": "A senha não pode conter caracteres duplicados"})
     if " " in password:
-        notvalid.append('A senha não pode conter espaço')
+        notvalid.append({"rule": "space", "message": "A senha não deve conter espaços"})
     return notvalid
 
 @app.post("/user/validate", status_code=status.HTTP_201_CREATED ,response_model=PasswordResponse)
