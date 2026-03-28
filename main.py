@@ -21,5 +21,6 @@ async def validation_pss(request: PasswordRequest):
         )
 
 # Cenários de testes - Status code para validação
-#Boas práticas de API Rest - como devolve e recebe os dados
-# Separar o servidor em  outra pasta api>server>rota e chamar na main 
+# Boas práticas de API Rest - como devolve e recebe os dados
+# Organizar a estrutura de pastas conforme padrão
+

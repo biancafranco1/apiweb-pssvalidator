@@ -36,3 +36,5 @@ Embora a biblioteca Flask fosse mais simples e não utilizasse tipagem, nesse pr
 
 - Lista x String dos caracteres especiais
 String é imutável e lista permite substituições
+
+
