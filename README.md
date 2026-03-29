@@ -273,9 +273,9 @@ pytest -v tests/<arquivo de teste desejado>.py
 ```
 
 Exemplos:
-pytest - v tests/integrated_test_api.py
-pytest - v tests/integrated_test_validator.py
-pytest - v tests/unit_test_validator.py
+- pytest - v tests/integrated_test_api.py
+- pytest - v tests/integrated_test_validator.py
+- pytest - v tests/unit_test_validator.py
 
 ---
 
