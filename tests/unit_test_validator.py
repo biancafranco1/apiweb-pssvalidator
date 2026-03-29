@@ -1,10 +1,8 @@
 import pytest 
-from utils.validate_password import validate_password
+from app.services.validate_password import validate_password
 from typing import List
 
-#─────────────────────────────────────────────
-#  Helpers
-# ─────────────────────────────────────────────
+
 def get_rules(result: List[dict]) -> List[str]:
     """Extrai apenas os nomes das regras violadas."""
     return [item["rule"] for item in result]
@@ -24,9 +22,7 @@ def assert_rule_not_triggered(password: str, rule: str):
     )
  
  
-# ══════════════════════════════════════════════
 #  REGRA: minLenght  (mínimo 9 caracteres)
-# ══════════════════════════════════════════════
 class TestMinLength:
     RULE = "minLenght"
  
@@ -55,11 +51,8 @@ class TestMinLength:
         """Edge case: string vazia."""
         pw = ""
         assert_rule_triggered(pw, self.RULE)
- 
- 
-# ══════════════════════════════════════════════
+
 #  REGRA: number  (pelo menos 1 dígito)
-# ══════════════════════════════════════════════
 class TestNumber:
     RULE = "number"
  
@@ -88,10 +81,8 @@ class TestNumber:
         pw = "Abcdefg@2"
         assert_rule_not_triggered(pw, self.RULE)
  
- 
-# ══════════════════════════════════════════════
+
 #  REGRA: lower  (pelo menos 1 letra minúscula)
-# ══════════════════════════════════════════════
 class TestLower:
     RULE = "lower"
  
@@ -120,10 +111,8 @@ class TestLower:
         pw = "12345678@!"
         assert_rule_triggered(pw, self.RULE)
  
- 
-# ══════════════════════════════════════════════
+
 #  REGRA: upper  (pelo menos 1 letra maiúscula)
-# ══════════════════════════════════════════════
 class TestUpper:
     RULE = "upper"
  
@@ -152,10 +141,8 @@ class TestUpper:
         pw = "12345678@!"
         assert_rule_triggered(pw, self.RULE)
  
- 
-# ══════════════════════════════════════════════
+
 #  REGRA: symbol  (pelo menos 1 caractere especial)
-# ══════════════════════════════════════════════
 class TestSymbol:
     RULE = "symbol"
     VALID_SYMBOLS = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+']
@@ -186,10 +173,8 @@ class TestSymbol:
         pw = "@Abcde12x"
         assert_rule_not_triggered(pw, self.RULE)
  
- 
-# ══════════════════════════════════════════════
+
 #  REGRA: unique  (sem caracteres repetidos)
-# ══════════════════════════════════════════════
 class TestUnique:
     RULE = "unique"
  
@@ -218,10 +203,8 @@ class TestUnique:
         pw = "AAAAAAAAA"
         assert_rule_triggered(pw, self.RULE)
  
- 
-# ══════════════════════════════════════════════
+
 #  REGRA: space  (sem espaços)
-# ══════════════════════════════════════════════
 class TestSpace:
     RULE = "space"
  
