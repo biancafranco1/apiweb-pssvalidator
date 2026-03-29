@@ -1,8 +1,8 @@
 
 from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
-from models.classes import PasswordRequest, PasswordResponse
-from utils.validate_password import validate_password
+from app.models.classes import PasswordRequest, PasswordResponse
+from app.services.validate_password import validate_password
 
 app = FastAPI()
 
@@ -20,7 +20,4 @@ async def validation_pss(request: PasswordRequest):
             content={"message": f"Ocorreu um erro de processamento no servidor"}
         )
 
-# Cenários de testes - Status code para validação
-# Boas práticas de API Rest - como devolve e recebe os dados
-# Organizar a estrutura de pastas conforme padrão
 

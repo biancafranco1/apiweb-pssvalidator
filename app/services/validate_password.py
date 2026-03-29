@@ -1,5 +1,5 @@
 from typing import List
-from models.classes import ResponseErrorDetails  
+from app.models.classes import ResponseErrorDetails  
 
 
 def validate_password(password:str) -> List[ResponseErrorDetails]:

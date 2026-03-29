@@ -1,5 +1,5 @@
 import pytest 
-from utils.validate_password import validate_password
+from app.services.validate_password import validate_password
 from tests.unit_test_validator import get_rules
 
 class TestIntegration:
