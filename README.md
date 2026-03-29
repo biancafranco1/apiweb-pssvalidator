@@ -281,25 +281,29 @@ Exemplos:
 
 ## Decisões Técnicas e racional das decisões 
 
-### Construção da API
-**Escolha da linguagem Python**
+### Escolha da linguagem Python
+
 A escolha da linguagem Python foi feita por familiaridade pelo contato em outros projetos e sintaxe facilitada da própria linguagem, visando a resolução de possíveis desafios que pudessem aparecer durante o desenvolvimento da API e viabilizasse o estudado durante o desenvolvimento do projeto visando respeitar a data de entrega e critérios de aceite que foram estabelecidos.
 
-**Escolha do uso e quais bibliotecas: Flask x FastAPI**
+### Escolha do uso e quais bibliotecas: Flask x FastAPI
+
 Embora o Flask seja mais simples e não exija tipagem, neste projeto optei pelo **FastAPI** pelos seguintes motivos:
 - Integração nativa com **Pydantic** para validação de dados e apoio na escrita de testes
 - Geração automática de documentação interativa via **Swagger UI** e **Redoc**
 - Suporte a tipagem estática com Python type 
 - Alta performance via Uvicorn 
 
-**Escolha do nome user/validator para o endpoint**
+### Escolha do nome user/validator para o endpoint
+
 Essa escolha foi baseada em materiais de boas práticas para nomenclatura, que sugere nomes simples e intuitivos aos endpoints. Neste caso com a particularidade de trafegar senhas, o desafio foi deixar simples, intuitivo mas sem exposição, por isso evitei o uso das palavras: senha, password, pss, entre outras que pudessem evidenciar o conteúdo.
 
-**Devolução do response em forma estruturada e identificada por chaves**
+### Devolução do response em forma estruturada e identificada por chaves
+
 Embora o desafio propusesse o retorno em boolean, decidi adicionar uma mensagem de erro e a possibilidade deles se agregarem em um objeto que retorna todos as regras de senha que foram infringidas. 
 Essa escolha foi pensando no consumo da API pelo Frontend onde neste caso as mensagens podem ser melhoradas e expostas, ou até mesmo na ausência de um front diretamente ao usuário final para que possibilite a correção e melhore a UX.
 
-**Uso de IA**
+### Uso de IA
+
 A construção da lógica e seu funcionamento foi propositalmente escrita manualmente por se tratar de um teste para validação de conhecimento. Para a construção do projeto me apoiei em pesquisas, documentações oficiais e fóruns o que naturalmente ocasionou um processo evolutivo nas features do projeto.
 Embora reconheça o valor e o ganho em agilidade do uso de IA bem utilizada, quis evidenciar meus conhecimentos próprios e adquirir novos durante o processo, por isso reservei o uso de IA para operações menos racionais e mais repetitivas, como:
 - Apoio na escrita dos casos de testes, após instruções do que deveria ser verificado e validado;
