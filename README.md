@@ -71,7 +71,7 @@ cd apiweb-pssvalidator
 
 ```bash
 # Criar o ambiente virtual
-python -m venv venv
+python3 -m venv venv
 
 # Ativar no Linux/macOS
 source venv/bin/activate
