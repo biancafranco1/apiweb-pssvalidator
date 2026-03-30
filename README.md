@@ -283,11 +283,11 @@ Exemplos:
 
 ### Escolha da linguagem Python
 
-A escolha da linguagem Python foi feita por familiaridade pelo contato em outros projetos e sintaxe facilitada da própria linguagem, visando a resolução de possíveis desafios que pudessem aparecer durante o desenvolvimento da API e viabilizasse o estudado durante o desenvolvimento do projeto visando respeitar a data de entrega e critérios de aceite que foram estabelecidos.
+A escolha da linguagem Python foi feita por familiaridade pelo contato em outros projetos e sintaxe facilitada da própria linguagem, visando a resolução de possíveis desafios que pudessem aparecer durante o desenvolvimento da API e viabilizasse o estudo durante o desenvolvimento do projeto visando respeitar a data de entrega e critérios de aceite que foram estabelecidos.
 
 ### Escolha do uso e quais bibliotecas: Flask x FastAPI
 
-Embora o Flask seja mais simples e não exija tipagem, neste projeto optei pelo **FastAPI** pelos seguintes motivos:
+Embora o Flask seja mais simples, neste projeto optei pelo **FastAPI** pelos seguintes motivos:
 - Integração nativa com **Pydantic** para validação de dados e apoio na escrita de testes
 - Geração automática de documentação interativa via **Swagger UI** e **Redoc**
 - Suporte a tipagem estática com Python type 
