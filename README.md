@@ -130,7 +130,7 @@ Content-Type: application/json
 ```
 
 **Body**
-
+Selecione a opção "raw"
 ```json
 {
   "password": "string"
