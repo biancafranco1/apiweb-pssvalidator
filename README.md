@@ -76,7 +76,7 @@ python3 -m venv venv
 # Ativar no Linux/macOS
 source venv/bin/activate
 
-# Ativar no Windows
+# Ativar no Windows - CMD
 venv\Scripts\activate
 ```
 
